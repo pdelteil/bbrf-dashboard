@@ -186,6 +186,20 @@
                         <b-pagination v-model="alerts.table.current_page" :total-rows="alerts.records.length" :per-page="table_pagination_records" aria-controls="tbl-alerts" align="center"></b-pagination>
                     </div>
                 </b-tab>
+                  <b-tab title="Stats">
+                    <div align="right">
+                        <b-table show-empty striped bordered borderless hover id="tbl-alerts" :items="alerts.records" :per-page="table_pagination_records" :current-page="alerts.table.current_page" :fields="alerts.table.fields" :options="alerts.table.options" :busy="alerts.table.isBusy">
+                            <template #table-busy>
+                                <div class="text-center">
+                                    <p>
+                                        <b-spinner class="align-middle"></b-spinner>
+                                    </p>
+                                    <p><strong>Loading...</strong></p>
+                                </div>
+                            </template>
+                        </b-table>                     
+                    </div>
+                </b-tab>
             </b-tabs>
 
         </div>
